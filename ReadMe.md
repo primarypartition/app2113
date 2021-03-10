@@ -35,75 +35,45 @@
 
 > composer remove symfony/requirements-checker
 
-> composer require logger
+> bin/console make:controller ToDoListController
 
-
-# Git Repo Setup 
-
-```
-git init
-git add .
-git commit -m "project init"
-git remote add origin https://github.com/primarypartition/app2113.git
-git push -u origin master
-```
-
-
-# Database 
-
-> composer require doctrine
-
-> composer require orm
-
-> bin/console doctrine:database:create
- 
-> bin/console make:entity
-
-> bin/console make:migration
-
-> bin/console doctrine:migrations:migrate
-
-> bin/console list doctrine
-
-> bin/console doctrine:schema:drop -n -q --force --full-database
+> bin/console make:entity 
 
 ```
-bin/console doctrine:schema:drop -n -q --force --full-database &&
-rm migrations/*.php &&
-bin/console make:migration &&
-bin/console doctrine:migrations:migrate -n -q 
+Task
+title
+string
+255
+yes
+status
+boolean
+yes
 ```
-
-> bin/console doctrine:fixtures:load -n -q
-
-> bin/console make:entity Video
-
-> php bin/console make:migration
-
-> php bin/console doctrine:migrations:migrate
-
-> bin/console make:entity Address
-
-> php bin/console make:migration
-
-> php bin/console doctrine:migrations:migrate
-
-> php bin/console doctrine:fixtures:load
-
-> bin/console debug:autowiring
 
 
 # Symfony Packages
 
 > https://flex.symfony.com/
 
-> composer require symfony/flex
+> composer require symfony/maker-bundle --dev
+
+> composer require annotations
+
+> composer require symfony/apache-pack
 
 > composer require twig-bundle
 
-> composer require maker
-
 > composer require orm
+
+> composer require doctrine
+
+> composer require doctrine/annotations
+
+> composer require logger
+
+> composer require symfony/flex
+
+> composer require maker
 
 > composer require symfony/asset
 
@@ -142,6 +112,69 @@ bin/console doctrine:migrations:migrate -n -q
 > sudo apt-get install php-xdebug
 
 > composer require symfony/translation
+
+
+# Git Repo Setup 
+
+```
+git init
+git add .
+git commit -m "project init"
+git remote add origin https://github.com/primarypartition/app2113.git
+git push -u origin master
+```
+
+
+# Database 
+
+> composer require doctrine
+
+> composer require doctrine/annotations
+
+> composer require orm
+
+> .env
+
+```
+DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
+```
+
+> bin/console doctrine:database:create
+ 
+> bin/console make:entity
+
+> bin/console make:migration
+
+> bin/console doctrine:migrations:migrate
+
+> bin/console list doctrine
+
+> bin/console doctrine:schema:drop -n -q --force --full-database
+
+```
+bin/console doctrine:schema:drop -n -q --force --full-database &&
+rm migrations/*.php &&
+bin/console make:migration &&
+bin/console doctrine:migrations:migrate -n -q 
+```
+
+> bin/console doctrine:fixtures:load -n -q
+
+> bin/console make:entity Video
+
+> php bin/console make:migration
+
+> php bin/console doctrine:migrations:migrate
+
+> bin/console make:entity Address
+
+> php bin/console make:migration
+
+> php bin/console doctrine:migrations:migrate
+
+> php bin/console doctrine:fixtures:load
+
+> bin/console debug:autowiring
 
 
 # Commands
